@@ -1,0 +1,197 @@
+/* Big tablet to 1200px (widths smaller than the 1140px row */
+@media only screen and (max-width: 1200px) {
+    .row { padding: 0 2%; }
+    
+    /* -------- HEADER SECTION --------- */
+    .header-textBox {
+        width: 100%;
+        padding: 0 2%;
+    }
+}
+
+
+/* Small tablet to big tablet: from 768px to 1023px */
+@media only screen and (max-width: 1023px) {
+    body { font-size: 18px; }
+    section { padding: 50px 0; }
+
+    /* -------- HEADER SECTION --------- */
+    h1 { font-size: 170%;}
+
+    .btn-about:link,
+    .btn-about:visited {
+        background-color: #1b703f;
+    }
+
+    .btn-about:hover,
+    .btn-about:active {
+        background-color: #134f2c;
+    }
+
+    /* -------- ABOUT SECTION --------- */
+    .about-text {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    /* -------- SKILLS SECTION --------- */
+    .content-skills div {
+        padding: 15px;
+    }
+
+    .skills-info {
+        font-size: 100%;
+    }
+
+    /* -------- FEATURES SECTION --------- */
+    .content-features {
+        margin-top: 2%;
+    }
+
+    .features-icons img {
+        height: 60px;
+    }
+
+    /* ------ CONTACT SECTION ------- */
+    .contact-form {
+        width: 80%;
+    }
+
+    textarea {
+        height: 200px;
+    }
+
+    /* ------ FOOTER SECTION ------- */
+    footer p {
+        font-size: 80%;
+    }
+
+    .footer-nav {
+        margin-top: 0;
+    }
+
+    .social-nav img {
+        width: 30px;
+        margin-top: -5px;
+    }
+    
+}
+
+
+/* Small phones to small tablets: from 481 to 767 */
+@media only screen and (max-width: 767px) {
+    body { font-size: 16px; }
+    section { padding: 30px 0; }
+
+    /* -------- HEADER SECTION --------- */
+    .row,
+    .header-textBox { padding: 0 4%; }
+
+    .header-textBox {
+        /* заради падащато меню */
+        position: absolute;
+        top: 52%;
+    }
+
+    .col {
+        /* така стаквам колоните и оправям разстоянието м/у тях*/
+        width: 100%;
+        margin: 0 0 4% 0;
+    }
+
+    .logo { height: 50px; }
+    .btn:link,
+    .btn:visited  { padding: 10px 15px; font-size: 14px; }
+    
+    h2 { font-size: 150%; }
+    h3 {font-size: 140%;}
+
+
+    /* --- MAIN NAVIGATION --- */
+
+    .main-nav { display: none; }
+
+    .main-nav {
+        float: left;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    .main-nav li {
+        display: block;
+    }
+
+    .main-nav li a:link,
+    .main-nav li a:visited {
+        display: block;
+        border: 0;
+        padding: 10px 0;
+        font-size: 100%;
+    }
+
+    /* --- MOBILE NAVIGATION --- */
+
+    .mobile-nav-icon img {
+        display: inline-block;
+    }
+
+    .sticky .main-nav { margin-top: 10px; }
+
+    .sticky .main-nav li a:link,
+    .sticky .main-nav li a:visited { padding: 10px 0; }
+
+    .sticky .mobile-nav-icon { margin-top: 10px; }
+    .sticky .mobile-nav-icon img { filter: none; }
+
+
+    /* -------- ABOUT SECTION --------- */
+    .about-text {
+        width: 100%;;
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+
+    /* -------- FEATURES SECTION --------- */
+    .section-features {
+        padding: 0;
+        padding-top: 4%;
+    }
+
+    .content-features p {
+        font-size: 100%;
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .content-skills:last-child {
+        margin-top: 4%;
+    }
+
+    .features-icons img {
+        margin-top: 15px;
+    }
+
+    .mediaQuery-h2 {
+        margin-bottom: 0;
+        font-size: 120%;
+    }
+
+    /* ------ CONTACT SECTION ------- */
+    .contact-form {
+        width: 100%;
+    }
+
+    /* ------ FOOTER SECTION ------- */
+    .social-nav {
+        float: none;
+    }
+}
+
+
+/* Small phones: from 0 to 480px */
+@media only screen and (max-width: 480px) {
+    section { padding: 25px 0; }
+    h1 { font-size: 150%; }
+}

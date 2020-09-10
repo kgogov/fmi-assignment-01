@@ -1,0 +1,588 @@
+/* ---------------------------------------- */
+/*              BASIC SETUP                 */
+/* ---------------------------------------- */
+
+html, body {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    color: #505050;
+    font-family: 'Raleway', 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    overflow-x: hidden; /* check */
+    /* https://css-tricks.com/almanac/properties/t/text-rendering/ */
+    text-rendering: optimizeLegibility;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* https://css-tricks.com/box-sizing/ */
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+/* флоат фикс */
+/* https://css-tricks.com/all-about-floats/ */
+.clearfix:after {
+    content: "."; /* Older browser do not support empty content */
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+ }
+
+/* Flat UI Colors: NEPHRITIS ---> #1b703f */
+/* Color picker tool: https://www.0to255.com/20864a */
+
+
+.row {
+    max-width: 1140px;
+    /* top/bottom & right/left ---> така центрираме */
+    margin: 0 auto; 
+}
+
+section {
+    padding: 80px 0;
+}
+
+/* -------- REUSABLE HEADINGS --------- */
+
+h1,
+h2,
+h3 {
+    font-weight: 300;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 220%;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 150%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+h2:after {
+    display: block;
+    height: 3px;
+    background-color: #1b703f;
+    content: " ";
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+h3 {
+    font-size: 120%;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+
+/* ---------------------------------------- */
+/*          HEADER SECTION                  */
+/* ---------------------------------------- */
+
+header {
+    /*check*/
+    background-image: -webkit-linear-gradient(#000000f6, #00000054) ,url(img/fortress-background.jpg);
+    background-image: linear-gradient(#000000f6, #00000054) ,url(img/fortress-background.jpg);
+    height: 100vh; /*100%отviewport(browserview)*/
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.header-textBox {
+    /* https://medium.com/@mautayro/understanding-css-position-display-float-87f9727334b2 */
+    position: relative;
+    width: 1140px;
+    top: 35%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); /* check */
+}
+
+.header-textBox span.author-name {
+    color: #1b703f;
+}
+
+.header-textBox span.author-subtitle {
+    font-size: 85%;
+}
+
+.logo {
+    height: 70px;
+    width: auto;
+    float: left;
+    margin-top: 25px;
+}
+
+.logo-black { 
+    display: none;
+    width: auto;
+    float: left;
+    height: 50px;
+    margin: 5px 0; 
+}
+
+
+/* ---- Main navigation ---- */
+.main-nav {
+    float: right;
+    list-style: none;
+    margin-top: 50px;
+}
+
+.main-nav li {
+    display: inline-block;
+    margin-left: 40px;
+}
+
+/* по-специфични са, затова тези линкове
+не са като нормалните, които сме задали като стил */
+
+.main-nav li a:link,
+.main-nav li a:visited {
+    padding: 8px 0;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 90%;
+    border-bottom: 3px solid transparent; /* границата няма да се вижда, докато не я hover-нем */
+    -webkit-transition: border-bottom 0.2s;
+    transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+    border-bottom: 3px solid #1b703f;
+}
+
+/* ---- Sticky navigation ---- */
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fffffff5;
+    -webkit-box-shadow: 0 2px 2px #ebebeb;
+            box-shadow: 0 2px 2px #ebebeb;
+    z-index: 9999;
+}
+
+.sticky .main-nav { margin-top: 20px; }
+
+.sticky .logo { display: none; }
+.sticky .logo-black { display: block; }
+
+/* this will be applied ONLY if they are inside .sticky */
+.sticky .main-nav li a:link,
+.sticky .main-nav li a:visited {
+    padding: 16px 0;
+    color: #555;
+}
+
+/* ---- MOBILE NAVIGATION ---- */
+.mobile-nav-icon {
+    float: right;
+    margin-top: 30px;
+    cursor: pointer;
+
+}
+
+.mobile-nav-icon img {
+    display: none;
+    width: 35px;
+    filter: invert(99%) sepia(2%) saturate(361%) hue-rotate(318deg) brightness(117%) contrast(100%);
+}
+
+/* ------ ALL LINKS ------ */
+
+a:link,
+a:visited {
+    color: #3a75ce;
+    text-decoration: none;
+    border-bottom: 1px solid #3a75ce;
+    -webkit-transition: border-bottom 0.2s, color 0.2s;
+    transition: border-bottom 0.2s, color 0.2s;
+}
+
+a:hover,
+a:active {
+    color: #555;
+    border-bottom: 1px solid transparent;
+}
+
+
+/* -------- BUTTONS HEADER --------- */
+
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+    -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
+    transition: background-color 0.2s, border 0.2s, color 0.2s; /* check */
+}
+
+.btn-work:link,
+.btn-work:visited {
+    background-color: #1b703f;
+    border: 2px solid #1b703f;
+    color: #ffffff;
+    margin-right: 10px;
+}
+
+.btn-about:link,
+.btn-about:visited {
+    border: 2px solid #1b703f;
+    color:  #ffffff; /* #1b703f */
+}
+
+.btn:hover,
+.btn:active {
+    background-color: #134f2c;
+}
+
+.btn-work:hover,
+.btn-work:active {
+    border: 2px solid #134f2c;
+}
+
+.btn-about:hover,
+.btn-about:active {
+    border: 2px solid #134f2c;
+    color: #ffffff;
+}
+
+/* -------- ABOUT SECTION --------- */
+
+.section-about {
+    background-color: #e0e0e0;
+}
+
+.about-text {
+    line-height: 145%;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: justify;
+}
+
+/* -------- SKILLS SECTION --------- */
+
+.section-skills {
+    background-image: -webkit-linear-gradient(#000000b6, #000000) ,url(img/code-background.jpg);
+    background-image: linear-gradient(#000000b6, #000000) ,url(img/code-background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.section-skills h2 {
+    color: #ffffff;
+}
+
+.content-skills {
+    width: 97%;
+    margin-left: 1.5%;
+    border-radius: 50px;
+    font-size: 90%;
+    line-height: 125%;
+    text-align: center;
+    word-spacing: 2px;
+    color: #ffffff;
+    -webkit-box-shadow: 0px 0px 20px 2px #1b703f;
+    box-shadow: 0px 0px 20px 2px #1b703f;
+    /* Horizontal Length, Vertical Length, Blur Radius, Spread Radius, Shadow Color */
+}
+
+.content-skills h2 {
+    font-size: 130%;
+}
+
+.content-skills div {
+    padding: 25px;
+}
+
+.content-skills img {
+    width: 10%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.skills-info {
+    color: #83c3a2;
+    margin: 10px 0;
+    font-weight: 400;
+    font-size: 120%;
+}
+
+/* -------- FEATURES SECTION --------- */
+
+.section-features {
+    background-color: #e0e0e0;
+}
+
+.content-features {
+    margin-top: 5%;
+}
+
+.content-features p {
+    font-size: 90%;
+    line-height: 125%;
+}
+
+.content-features h3 {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.features-icons img {
+    display: block;
+    height: 90px;
+    width: auto;
+    margin: 0 auto;
+}
+
+/* -------- WORK SECTION --------- */
+
+.section-work {
+    background-color: #ececec;
+    padding-bottom: 0;
+}
+
+.work-header p {
+    text-align: center;
+    margin-bottom: 60px;
+
+}
+
+.work-showcase {
+    list-style: none;
+    width: 100%;
+}
+
+.work-showcase li {
+    display: block;
+    float: left;
+    width: 25%;
+    /* 4 пъти по 25% прави 100% */
+}
+
+.work-photo {
+    width: 100%;
+    margin: 0;
+    /* така картинката не излиза от viewport-а */
+    overflow: hidden;
+    background-color: #000000;
+}
+
+.work-photo img {
+    vertical-align: bottom;
+    /* фиксваме дразнещото празно пространство */
+    opacity: 0.7;
+    width: 100%;
+    height: auto;
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15);
+    -webkit-transition: opacity 0.2s, -webkit-transform 0.5s;
+    transition: opacity 0.2s, -webkit-transform 0.5s;
+    transition: transform 0.5s, opacity 0.2s;
+    transition: transform 0.5s, opacity 0.2s, -webkit-transform 0.5s;
+}
+
+.work-photo img:hover {
+    opacity: 1;
+    -webkit-transform: scale(1.01);
+            transform: scale(1.01);
+}
+
+/* -------- CONTACT SECTION --------- */
+
+.section-contact {
+    background-color: #ececec;
+}
+
+.contact-header p {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-form {
+    width: 60%;
+    margin: 0 auto;
+}
+
+input[type=text],
+input[type=email],
+select,
+textarea {
+    width: 100%;
+    padding: 7px;
+    border-radius: 5px;
+    border: 1px solid #cccccc; /* nice color */
+}
+
+textarea {
+    height: 300px;
+    resize: none;
+}
+
+input[type=submit],
+input[type=submit]:link,
+input[type=submit]:visited {
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+    -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    background-color: #1b703f;
+    border: 2px solid #1b703f;
+    color: #ffffff;
+}
+
+input[type=submit]:hover,
+input[type=submit]:active {
+    background-color: #134f2c;
+    border-color: #134f2c
+}
+
+/* ----------> GALLERY <----------- */
+
+
+.section-gallery {
+    padding: 30px;
+    background-color: #4b4b4b;
+}
+
+.section-gallery h2 {
+    color: #ffffff;
+}
+
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 70%;
+  padding: 0;
+  margin: 0 15%;
+  -webkit-box-shadow: 0px 0px 20px 4px #838383;
+    box-shadow: 0px 0px 20px 4px #838383;
+}
+
+.rslides li {
+  --webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+}
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+}
+
+
+
+
+
+/* ------- FOOTER SECTION --------- */
+
+footer {
+    background-color: #333;
+    padding: 15px;
+}
+
+footer p {
+    text-align: center;
+    color: #888;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+.footer-nav {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.footer-nav li,
+.social-nav li {
+    display: inline-block;
+    padding: 7px;
+}
+
+.footer-nav li a:link,
+.footer-nav li a:visited {
+    border: 0;
+    color: #888;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.footer-nav li a:hover,
+.footer-nav li a:active {
+    color: #ddd;
+}
+
+.social-nav {
+    list-style: none;
+    float: right;
+}
+
+.social-nav img {
+    width: 40px;
+    height: auto;
+}
+
+/* ------ ANIMATIONS ------ */
+
+.js--animation-btn,
+.js--animation-about,
+.js--animation-h2-skills {
+    opacity: 0;
+}
+
+.js--animation-btn.animated,
+.js--animation-about.animated,
+.js--animation-h2-skills.animated {
+    opacity: 1;
+}
+
+.js--animation-h2-skills.animated {
+    -webkit-animation-duration: 1.7s;
+            animation-duration: 1.7s;
+}
